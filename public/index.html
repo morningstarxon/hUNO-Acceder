@@ -1,124 +1,398 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-		/>
-		<title>Ultraviolet | Sophisticated Web Proxy</title>
-		<meta
-			name="description"
-			content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!"
-		/>
-		<meta
-			name="keywords"
-			content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked"
-		/>
-		<meta
-			name="theme-color"
-			media="(prefers-color-scheme: dark)"
-			content="#434c5e"
-		/>
-		<meta name="googlebot" content="index, follow, snippet" />
-		<link rel="shortcut icon" content="favicon.ico" />
-		<link rel="stylesheet" href="index.css" />
-		
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hUNO Acceder</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=cairo:400,600,700,900" rel="stylesheet" />
+    
+    <!-- Import official Ultraviolet configurations from your repo setup -->
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
 
-		<script src="baremux/index.js"></script>
-		<script src="uv/uv.bundle.js"></script>
-		<script src="uv/uv.config.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            color: #000000;
+        }
 
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				"mainEntity": [
-					{
-						"@type": "Question",
-						"name": "What is Ultraviolet (Web Proxy)?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!"
-						}
-					},
-					{
-						"@type": "Question",
-						"name": "How do I unblock sites using Ultraviolet?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Simply head to an official site featuring Ultraviolet such as Holy Unblocker or Incognito! You can also self-host Ultraviolet on your own web server for maximum privacy."
-						}
-					},
-					{
-						"@type": "Question",
-						"name": "What if Ultraviolet is blocked or not working?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Join the Titanium Network Discord at discord.gg/unblock!"
-						}
-					}
-				]
-			}
-		</script>
-	</head>
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #bda281;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000000;
+            border: 2px solid #bda281;
+        }
 
-	<body>
-		<div
-			title="Ultraviolet Logo"
-			class="flex-center logo-wrapper header-center"
-		>
-			<img class="logo" src="uv.png" alt="Ultraviolet" />
-			<h1>Ultraviolet | TN</h1>
-		</div>
-		<div class="flex-center desc left-margin">
-			<p>
-				Ultraviolet is highly sophisticated proxy used for evading internet
-				censorship.
-			</p>
-		</div>
+        body {
+            background-color: #cfb08c;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-		<form id="uv-form" class="flex-center">
-			<input
-				id="uv-search-engine"
-				value="https://www.google.com/search?q=%s"
-				type="hidden"
-			/>
-			<input id="uv-address" type="text" placeholder="Search the web freely" />
-		</form>
-		<div class="desc left-margin">
-			<p id="uv-error"></p>
-			<pre id="uv-error-code"></pre>
-		</div>
-		<footer>
-			<div>
-				<a
-					title="The TitaniumNetwork GitHub organization"
-					href="https://github.com/titaniumnetwork-dev"
-					>TitaniumNetwork</a
-				>
-				<a title="The TitaniumNetwork Discord" href="https://discord.gg/unblock"
-					>Discord</a
-				>
-				<a
-					title="The TompHTTP GitHub organization"
-					href="https://github.com/tomphttp"
-					>TompHTTP</a
-				>
-				<a
-					title="The official deployment repository for Ultraviolet"
-					href="https://github.com/titaniumnetwork-dev/Ultraviolet-App"
-					>GitHub</a
-				>
-				<a title="License information" href="credits.html">Credits</a>
-			</div>
-			<div>
-				<span>Ultraviolet &copy; TN 2023</span>
-			</div>
-		</footer>
-		<iframe style="display: none" id="uv-frame"></iframe>
-		<script src="register-sw.js"></script>
-		<script src="search.js"></script>
-		<script src="index.js"></script>
-	</body>
+        header {
+            background-color: #c4a47d;
+            border-bottom: 4px solid #000000;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo-section img {
+            width: 44px;
+            height: 44px;
+            border: 3px solid #000000;
+            border-radius: 6px;
+            background-color: #bda281;
+            object-fit: cover;
+        }
+
+        .logo-section h1 {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        input, select {
+            padding: 14px;
+            background-color: #dfc4a3;
+            border: 3px solid #000000;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            background-color: #d4af37;
+        }
+
+        button {
+            padding: 14px 28px;
+            background-color: #d4af37;
+            border: 3px solid #000000;
+            font-weight: 900;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            outline: none;
+            transition: transform 0.05s;
+            box-shadow: none; /* No shadows allowed */
+        }
+
+        button:hover {
+            background-color: #e5be49;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        button.secondary {
+            background-color: #bda281;
+        }
+
+        button.secondary:hover {
+            background-color: #c4a47d;
+        }
+
+        .landing-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            overflow-y: auto;
+            gap: 20px;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-container input {
+            flex: 1;
+            font-size: 18px;
+            padding: 16px;
+        }
+
+        .search-container button {
+            font-size: 18px;
+            padding: 16px 36px;
+        }
+
+        .options-bar {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            background-color: #c4a47d;
+            padding: 12px 18px;
+            border: 3px solid #000000;
+            border-radius: 8px;
+        }
+
+        .option-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .option-group select {
+            padding: 8px 12px;
+            font-size: 13px;
+            border-width: 3px;
+        }
+
+        .browser-wrapper {
+            display: none;
+            flex: 1;
+            flex-direction: column;
+            background-color: #dfc4a3;
+            position: relative;
+        }
+
+        .browser-nav {
+            background-color: #c9ab85;
+            border-bottom: 4px solid #000000;
+            padding: 10px 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .browser-nav input {
+            flex: 1;
+            padding: 10px 14px;
+            font-size: 15px;
+            border-width: 3px;
+            border-radius: 8px;
+        }
+
+        .browser-nav button {
+            padding: 10px 20px;
+            font-size: 15px;
+            border-width: 3px;
+            border-radius: 8px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #dfc4a3;
+        }
+
+        .status-banner {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #c4a47d;
+            border: 3px solid #000000;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 6px;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            .search-container {
+                flex-direction: column;
+            }
+            .options-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section" onclick="goHome()">
+            <img src="/huno.png" alt="hUNO Logo" onerror="this.style.display='none';">
+            <h1>hUNO Acceder</h1>
+        </div>
+        <div class="nav-controls">
+            <button class="secondary" onclick="goHome()">Home</button>
+        </div>
+    </header>
+
+    <div class="landing-wrapper" id="landingView">
+        <div class="search-container">
+            <input type="text" id="urlInput" placeholder="Enter website domain or search query..." onkeydown="handleKeyPress(event)" />
+            <button onclick="browse()">Browse</button>
+        </div>
+
+        <div class="options-bar">
+            <div class="option-group">
+                <span>Viewport Options:</span>
+                <select id="viewMode">
+                    <option value="iframe">In-App Viewport (Split Browser)</option>
+                    <option value="direct">Full Tab Redirect</option>
+                </select>
+            </div>
+            <div class="option-group" id="statusIndicator">
+                <span>Proxy Health:</span>
+                <span id="healthText" style="color: #000000; font-weight: 900;">• Connecting...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="browser-wrapper" id="browserView">
+        <div class="browser-nav">
+            <button class="secondary" onclick="goHome()">← Hub</button>
+            <input type="text" id="browserUrlInput" onkeydown="handleBrowserKeyPress(event)" />
+            <button onclick="navigateBrowser()">Go</button>
+        </div>
+        <iframe id="viewport" src="about:blank"></iframe>
+        <div class="status-banner" id="statusBanner">Awaiting Connection</div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            if ('serviceWorker' in navigator) {
+                try {
+                    await navigator.serviceWorker.register('/uv/uv.sw.js', {
+                        scope: __uv$config.prefix
+                    });
+                    document.getElementById('healthText').textContent = "• Ready";
+                } catch (err) {
+                    document.getElementById('healthText').textContent = "• Offline Preview";
+                    console.info('UV Service Worker is ready to deploy alongside Ultraviolet-App assets.');
+                }
+            } else {
+                document.getElementById('healthText').textContent = "• SW Unsupported";
+            }
+        });
+
+        function formatQueryUrl(inputString) {
+            let url = inputString.trim();
+            if (!url) return '';
+
+            const hasSpace = url.includes(' ');
+            const hasDot = url.includes('.');
+            const looksLikeUrl = (url.startsWith('http://') || url.startsWith('https://') || (hasDot && !hasSpace));
+
+            if (looksLikeUrl) {
+                if (!/^https?:\/\//i.test(url)) {
+                    url = 'https://' + url;
+                }
+                return url;
+            } else {
+                return 'https://html.duckduckgo.com/html/?q=' + encodeURIComponent(url);
+            }
+        }
+
+        function browse() {
+            const input = document.getElementById('urlInput');
+            const target = formatQueryUrl(input.value);
+            if (!target) return;
+
+            processNavigation(target);
+        }
+
+        function processNavigation(url) {
+            const mode = document.getElementById('viewMode').value;
+            let encodedUrl = url;
+
+            if (typeof __uv$config !== 'undefined') {
+                encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
+            } else {
+                encodedUrl = '/proxy?url=' + encodeURIComponent(url);
+            }
+            
+            if (mode === 'direct') {
+                window.location.href = encodedUrl;
+            } else {
+                launchInAppBrowser(url, encodedUrl);
+            }
+        }
+
+        function launchInAppBrowser(originalUrl, proxyUrl) {
+            document.getElementById('landingView').style.display = 'none';
+            document.getElementById('browserView').style.display = 'flex';
+            
+            document.getElementById('browserUrlInput').value = originalUrl;
+            document.getElementById('statusBanner').textContent = "Connecting...";
+            document.getElementById('viewport').src = proxyUrl;
+        }
+
+        function navigateBrowser() {
+            const input = document.getElementById('browserUrlInput');
+            const target = formatQueryUrl(input.value);
+            if (!target) return;
+
+            document.getElementById('statusBanner').textContent = "Navigating...";
+            let proxyUrl = target;
+
+            if (typeof __uv$config !== 'undefined') {
+                proxyUrl = __uv$config.prefix + __uv$config.encodeUrl(target);
+            } else {
+                proxyUrl = '/proxy?url=' + encodeURIComponent(target);
+            }
+
+            document.getElementById('viewport').src = proxyUrl;
+        }
+
+        function goHome() {
+            document.getElementById('viewport').src = 'about:blank';
+            document.getElementById('browserView').style.display = 'none';
+            document.getElementById('landingView').style.display = 'flex';
+            document.getElementById('statusBanner').textContent = "Awaiting Connection";
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                browse();
+            }
+        }
+
+        function handleBrowserKeyPress(event) {
+            if (event.key === 'Enter') {
+                navigateBrowser();
+            }
+        }
+
+        document.getElementById('viewport').onload = function() {
+            const activeUrl = document.getElementById('browserUrlInput').value;
+            if (activeUrl) {
+                document.getElementById('statusBanner').textContent = "Proxy Secure";
+            }
+        };
+    </script>
+</body>
 </html>
